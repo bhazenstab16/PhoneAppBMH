@@ -1,0 +1,203 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.phoneapptwo.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+   <TabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                
+                <RelativeLayout
+                    android:id="@+id/Recents"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ToggleButton
+                        android:id="@+id/toggleButtonCall1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:onClick="onToggleCall1Click"
+                        android:text="\nFrom: Dad\nAt: 11:23am\nDate: 10/8/19\n"
+                        android:textOff="\nFrom: Dad\nAt: 11:23am\nDate: 10/8/19\n"
+                        android:textOn="\nFrom: Dad\nAt: 11:23am\nDate: 10/8/19\n" />
+
+                    <Button 
+                        android:id="@+id/buttonCall1" 
+                        android:layout_width="wrap_content" 
+                        android:layout_height="wrap_content" 
+                        android:layout_below="@+id/toggleButtonCall1" 
+                        android:layout_centerHorizontal="true" 
+                        android:layout_marginTop="5dp" 
+                        android:visibility="gone" 
+                        android:text="Call" />
+                    
+                    <Button 
+                        android:id="@+id/buttonText1" 
+                        android:layout_width="wrap_content" 
+                        android:layout_height="wrap_content" 
+                        android:layout_centerHorizontal="true" 
+                        android:visibility="gone" 
+                        android:layout_below="@+id/buttonCall1"
+                        android:text="Text" />
+                    
+                     <ToggleButton
+                        android:id="@+id/toggleButtonCall2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/buttonText1"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onToggleCall2Click"
+                        android:text="\nFrom: Brother\nAt: 11:20am\nDate: 10/8/19\n"
+                        android:textOff="\nFrom: Brother\nAt: 11:20am\nDate: 10/8/19\n"
+                        android:textOn="\nFrom: Brother\nAt: 11:20am\nDate: 10/8/19\n" />
+                    
+                    <Button
+                        android:id="@+id/buttonCall2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/toggleButtonCall2"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:text="Call" />
+
+                    <Button
+                        android:id="@+id/buttonText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/buttonCall2"
+                        android:visibility="gone"
+                        android:text="Text" />
+                    
+                    <ToggleButton
+                        android:id="@+id/toggleButtonCall3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/buttonText2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onToggleCall3Click"
+                        android:text="\nFrom: Hulk Hogan\nAt: 9:23am\nDate: 10/7/19\n"
+                        android:textOff="\nFrom: Hulk Hogan\nAt: 9:23am\nDate: 10/7/19\n"
+                        android:textOn="\nFrom: Hulk Hogan\nAt: 9:23am\nDate: 10/7/19\n" />
+
+                    <Button
+                        android:id="@+id/buttonCall3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/toggleButtonCall3"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:text="Call" />
+
+                    <Button
+                        android:id="@+id/buttonText3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/buttonCall3"
+                        android:visibility="gone"
+                        android:text="Text" />
+
+                    
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Contacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ToggleButton
+                        android:id="@+id/toggleButtonMom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:onClick="onToggleMomClick"
+                        android:text="Mom"
+                        android:textOff="Mom"
+                        android:textOn="Mom" />
+
+                    <TextView
+                        android:id="@+id/textViewContactInfoMom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/toggleButtonMom"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:text="Mom\n\nNumber: 1-800-999-2626"/>
+
+                    <ToggleButton
+                        android:id="@+id/toggleButtonDad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/textViewContactInfoMom"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onToggleDadClick"
+                        android:text="Dad"
+                        android:textOff="Dad"
+                        android:textOn="Dad" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButtonBrother"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/toggleButtonDad"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onToggleBrotherClick"
+                        android:text="Brother"
+                        android:textOff="Brother"
+                        android:textOn="Brother" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButtonHulkHogan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toggleButtonBrother"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:onClick="onToggleHulkHoganClick"
+                        android:text="Hulk Hogan"
+                        android:textOff="Hulk Hogan"
+                        android:textOn="Hulk Hogan" />
+                    
+                </RelativeLayout>
+
+                
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>
+

@@ -1,0 +1,199 @@
+package com.example.phoneapptwo;
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
+import android.widget.ToggleButton;
+import android.os.Build;
+
+public class MainActivity extends ActionBarActivity {
+
+	ToggleButton tbtnMom;
+	ToggleButton tbtnDad;
+	ToggleButton tbtnBrother;
+	ToggleButton tbtnHulkHogan;
+	TextView tvContactInfoMom;
+	TextView tvContactInfoDad;
+	//TextView tvContactInfoBrother;
+	//TextView tvContactInfoHulkHogan;
+	ToggleButton tbtnCall1;
+	ToggleButton tbtnCall2;
+	ToggleButton tbtnCall3;
+	ToggleButton tbtnCall4;
+	TextView tvCallInfo;
+	Button btCall1;
+	Button btText1;
+	Button btCall2;
+	Button btCall3;
+	Button btText2;
+	Button btText3;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        TabHost tabHost = (TabHost)findViewById(R.id.tabhost);
+        tabHost.setup();
+        
+        TabSpec spec1 = tabHost.newTabSpec("tab1");
+        spec1.setIndicator("Contacts");
+        spec1.setContent(R.id.Contacts);
+        tabHost.addTab(spec1);
+        
+        TabSpec spec2 = tabHost.newTabSpec("tab2");
+        spec2.setIndicator("Recent Calls");
+        spec2.setContent(R.id.Recents);
+        tabHost.addTab(spec2);
+        
+        tvContactInfoMom=(TextView)findViewById(R.id.textViewContactInfoMom);
+        tbtnMom=(ToggleButton)findViewById(R.id.toggleButtonMom);
+        tbtnDad=(ToggleButton)findViewById(R.id.toggleButtonDad);
+        tbtnBrother=(ToggleButton)findViewById(R.id.toggleButtonBrother);
+        tbtnHulkHogan=(ToggleButton)findViewById(R.id.toggleButtonHulkHogan);
+        tbtnCall1=(ToggleButton)findViewById(R.id.toggleButtonCall1);
+        tbtnCall2=(ToggleButton)findViewById(R.id.toggleButtonCall2);
+        tbtnCall3=(ToggleButton)findViewById(R.id.toggleButtonCall3);
+        btCall1=(Button)findViewById(R.id.buttonCall1);
+        btText1=(Button)findViewById(R.id.buttonText1);
+        btCall2=(Button)findViewById(R.id.buttonCall2);
+        btCall3=(Button)findViewById(R.id.buttonCall3);
+        btText2=(Button)findViewById(R.id.buttonText2);
+        btText3=(Button)findViewById(R.id.buttonText3);
+        
+        
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            return rootView;
+        }
+    }
+
+    public void onToggleMomClick(View v)
+    {
+    	tbtnMom.setChecked(true);
+    	tbtnDad.setChecked(false);
+    	tbtnBrother.setChecked(false);
+    	tbtnHulkHogan.setChecked(false);
+    	tvContactInfoDad.setVisibility(View.GONE);
+    	tvContactInfoMom.setVisibility(View.VISIBLE);
+    }
+    public void onToggleDadClick(View v)
+    {
+    	tbtnMom.setChecked(false);
+    	tbtnDad.setChecked(true);
+    	tbtnBrother.setChecked(false);
+    	tbtnHulkHogan.setChecked(false);
+    	tvContactInfoMom.setVisibility(View.GONE);
+    	//tvContactInfoBrother.setVisibility(View.GONE);
+    	//tvContactInfoHulkHogan.setVisibility(View.GONE);
+    	tvContactInfoDad.setVisibility(View.VISIBLE);
+    }
+    public void onToggleBrotherClick(View v)
+    {
+    	tbtnMom.setChecked(false);
+    	tbtnDad.setChecked(false);
+    	tbtnBrother.setChecked(true);
+    	tbtnHulkHogan.setChecked(false);
+    	tvContactInfoMom.setVisibility(View.GONE);
+    	//tvContactInfoDad.setVisibility(View.GONE);
+    	//tvContactInfoHulkHogan.setVisibility(View.GONE);
+    	//tvContactInfoBrother.setVisibility(View.VISIBLE);
+    	//tvContactInfo.setText("Brother\n\nNumber: 867-5309");
+    }
+    public void onToggleHulkHoganClick(View v)
+    {
+    	tbtnMom.setChecked(false);
+    	tbtnDad.setChecked(false);
+    	tbtnBrother.setChecked(false);
+    	tbtnHulkHogan.setChecked(true);
+    	tvContactInfoMom.setVisibility(View.GONE);
+    	//tvContactInfoDad.setVisibility(View.GONE);
+    	//tvContactInfoBrother.setVisibility(View.GONE);
+    	//tvContactInfoHulkHogan.setVisibility(View.VISIBLE);
+    	//tvContactInfo.setText("Hulk Hogan\n\nNumber: 1-800-567-6940");
+    }
+    public void onToggleCall1Click(View v)
+    {
+    	tbtnCall1.setChecked(true);
+    	tbtnCall2.setChecked(false);
+    	tbtnCall3.setChecked(false);
+    	btCall2.setVisibility(View.GONE);
+    	btText2.setVisibility(View.GONE);
+    	btCall3.setVisibility(View.GONE);
+    	btText3.setVisibility(View.GONE);
+    	btCall1.setVisibility(View.VISIBLE);
+    	btText1.setVisibility(View.VISIBLE);
+    }
+    public void onToggleCall2Click(View v)
+    {
+    	tbtnCall1.setChecked(false);
+    	tbtnCall2.setChecked(true);
+    	tbtnCall3.setChecked(false);
+    	btCall1.setVisibility(View.GONE);
+    	btText1.setVisibility(View.GONE);
+    	btCall3.setVisibility(View.GONE);
+    	btText3.setVisibility(View.GONE);
+    	btCall2.setVisibility(View.VISIBLE);
+    	btText2.setVisibility(View.VISIBLE);
+    }
+    public void onToggleCall3Click(View v)
+    {
+    	tbtnCall1.setChecked(false);
+    	tbtnCall2.setChecked(false);
+    	tbtnCall3.setChecked(true);
+    	btCall1.setVisibility(View.GONE);
+    	btText1.setVisibility(View.GONE);
+    	btCall2.setVisibility(View.GONE);
+    	btText2.setVisibility(View.GONE);
+    	btCall3.setVisibility(View.VISIBLE);
+    	btText3.setVisibility(View.VISIBLE);
+    }
+}
